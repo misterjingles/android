@@ -8,14 +8,14 @@
     <name>Hello World</name>
 
     <description>
-        A hellow world example app.
+        A hello world example app.
     </description>
 
     <author href="https://github.com/ProfessorKevinForbes/Hello World" email="professorkevinforbes@gmail.com">
         Kevin Forbes
     </author>
 
-	<icon src="icon.png" />
+	<icon src="board.png" />
 	<gap:splash src="splash.png" />
 
 	<gap:platform name="ios" />
