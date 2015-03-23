@@ -1,19 +1,27 @@
+header {
+	background-color:forestgreen;
+}
 div.controls {
 	float:left;
-	height:15%;
-	margin-top:20px;
+	height:10%;
+	margin-top:10px;
 	margin-left:25px;
+	background-color:lightblue;
 }
 div.players {
 	float:left;
-	height:15%;
-	margin-top:20px;
+	height:10%;
+	margin-top:10px;
 	margin-left:25px;
+	background-color:lightblue;
 }
 div.board {
-	margin-top:25px;
-	margin-left:25px;
+	padding:25px 25px 25px 25px;
+	background-color:grey;
 }
 div.clearfix {
-	clear: both;
+	clear:both;
+}
+div h2 {
+	text-transform:uppercase;
 }
