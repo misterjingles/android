@@ -1,0 +1,19 @@
+div.controls {
+	float:left;
+	height:100px;
+	margin-top:20px;
+	margin-left:25px;
+}
+div.players {
+	float:left;
+	height:100px;
+	margin-top:20px;
+	margin-left:25px;
+}
+div.board {
+	margin-top:25px;
+	margin-left:50px;
+}
+div.clearfix {
+	clear: both;
+}
