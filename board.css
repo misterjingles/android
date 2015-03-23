@@ -22,6 +22,10 @@ div.board {
 div.clearfix {
 	clear:both;
 }
-div h2 {
+div h3 {
 	text-transform:uppercase;
+}
+h3::first-letter {
+	font-weight: bold;
+	font-size: 1.5em;
 }
