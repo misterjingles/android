@@ -1,34 +1,82 @@
-var ttt = ttt || {};
-
-var board = document.getElementById("board");
+var pictureSource;
+var destinationType;
+var imageName = "";
 
 var turn = "x";
 
-var xTiles = [], yTiles = [];
+var xTiles = [], oTiles = [];
 
-ttt.go = function(space) {
+document.addEventListener("deviceready",onDeviceReady,false);
+
+function onDeviceReady() {
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+}
+
+function go(space) {
 	
 	var img = document.getElementById(space);
 	
-	if (img.src == "blank.png" || ttt.endsWith(img.src, "blank.png")) {
+	if (img.src == "blank.png" || endsWith(img.src, "blank.png")) {
 		img.src = turn + ".png";
 		if (turn === "x") {
+			xTiles.push(space);
 			turn = "o";
 		} else {
+			oTiles.push(space);
 			turn = "x";
+		}
+	}
+	
+	if (checkForVictory(xTiles) || checkForVictory(oTiles)) {
+		if (navigator) {
+			navigator.vibrate(1000);
+		} else {
+			alert("Game Over!");
 		}
 	}
 }
 
-ttt.reset = function() {
+
+function changePhoto(name) {
+	imageName = name;
+	//alert('Changing Photo');
+	// Take picture using device camera and retrieve image as base64-encoded string
+	if (navigator && navigator.camera) {
+		navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+	}
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+function onPhotoDataSuccess(imageData) {
+	// Get image handle
+	//
+	var smallImage = document.getElementById(imageName);
+
+	// Unhide image elements
+	//
+	//smallImage.style.display = 'block';
+
+	// Show the captured photo
+	// The inline CSS rules are used to resize the image
+	//
+	smallImage.src = "data:image/jpeg;base64," + imageData;
+}
+
+function reset() {
 	for (var i = 1;i < 10;i ++) {
 		var img = document.getElementById("" + i);
 		img.src = "blank.png";
 	}
 	turn = "x";
+	xTiles = [];
+	oTiles = [];
 }
 
-ttt.endsWith = function (a, b) {
+function endsWith(a, b) {
 	if (a.length < b.length) {
 		return false;
 	}
@@ -36,4 +84,36 @@ ttt.endsWith = function (a, b) {
 		return true;
 	}
 	return false;
+}
+
+function checkForVictory(array) {
+	var victory = false;
+	if (array.indexOf(7) > -1) {
+		if (array.indexOf(4) > -1) {
+			victory |= (array.indexOf(1) > -1);
+		}
+		if (array.indexOf(8) > -1) {
+			victory |= (array.indexOf(9) > -1);
+		}
+		if (array.indexOf(5) > -1) {
+			victory |= (array.indexOf(3) > -1);
+		}
+	}
+	if (array.indexOf(2) > -1) {
+		if (array.indexOf(1) > -1) {
+			victory |= (array.indexOf(3) > -1);
+		}
+		if (array.indexOf(5) > -1) {
+			victory |= (array.indexOf(8) > -1);
+		}
+	}
+	if (array.indexOf(6) > -1) {
+		if (array.indexOf(5) > -1) {
+			victory |= (array.indexOf(4) > -1);
+		}
+		if (array.indexOf(9) > -1) {
+			victory |= (array.indexOf(3) > -1);
+		}
+	}
+	return victory;
 }

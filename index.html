@@ -4,34 +4,34 @@
 		<title>Hello, World!</title>
 		<link type="text/css" rel="stylesheet" href="board.css" />
 	</head>
-	<header>
+	<div class="title">
 		<center><h1>Tic Tac Toe</h1></center>
-	</header>
+	</div>
 	<body>
 		<div class="controls">
 			<h4>Controls</h4>
-			<ul><li><a onclick="javascript:ttt.reset()">New Game</a></li><li>Scoreboard</li></ul>
-		</div><div class="clearfix">&nbsp;</div>
+			<ul><li><a onclick="reset();">New Game</a></li><li>Scoreboard</li></ul>
+		</div><div class="clearfix"></div>
 		<div class="players">
-			<h4>Players</h4>Player 1:X&nbsp;&nbsp;&nbsp;Player 2:O
-		</div><div class="clearfix">&nbsp;</div>
+			<h4>Players</h4><img src="avatar.png" id="p1" onclick="changePhoto('p1')">&nbsp;&nbsp;vs.&nbsp;&nbsp;<img src="avatar.png" id="p2" onclick="changePhoto('p2')">
+		</div><div class="clearfix"></div>
 		<center>
 		<div class="board">
 		<table class="board">
 			<tr>
-				<td><img id="7" src="blank.png" onclick="javascript:ttt.go(7);"></td>
-				<td><img id="8" src="blank.png" onclick="javascript:ttt.go(8);"></td>
-				<td><img id="9" src="blank.png" onclick="javascript:ttt.go(9);"></td>
+				<td><img id="7" src="blank.png" onclick="go(7);"></td>
+				<td><img id="8" src="blank.png" onclick="go(8);"></td>
+				<td><img id="9" src="blank.png" onclick="go(9);"></td>
 			</tr>
 			<tr>
-				<td><img id="4" src="blank.png" onclick="javascript:ttt.go(4);"></td>
-				<td><img id="5" src="blank.png" onclick="javascript:ttt.go(5);"></td>
-				<td><img id="6" src="blank.png" onclick="javascript:ttt.go(6);"></td>
+				<td><img id="4" src="blank.png" onclick="go(4);"></td>
+				<td><img id="5" src="blank.png" onclick="go(5);"></td>
+				<td><img id="6" src="blank.png" onclick="go(6);"></td>
 			</tr>
 			<tr>
-				<td><img id="1" src="blank.png" onclick="javascript:ttt.go(1);"></td>
-				<td><img id="2" src="blank.png" onclick="javascript:ttt.go(2);"></td>
-				<td><img id="3" src="blank.png" onclick="javascript:ttt.go(3);"></td>
+				<td><img id="1" src="blank.png" onclick="go(1);"></td>
+				<td><img id="2" src="blank.png" onclick="go(2);"></td>
+				<td><img id="3" src="blank.png" onclick="go(3);"></td>
 			</tr>
 		</table>
 		</div>

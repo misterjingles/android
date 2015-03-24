@@ -1,4 +1,4 @@
-header {
+div.title {
 	background-color:forestgreen;
 }
 div.controls {
@@ -9,13 +9,10 @@ div.controls {
 div.players {
 	float:left;
 	width:100%;
-	background-color:lightblue;
+	background-color:lightyellow;
 }
 div.board {
 	background-color:grey;
-}
-table.board {
-	margin-left:10px;
 }
 div.clearfix {
 	clear:both;
@@ -26,4 +23,8 @@ div h4 {
 h4::first-letter {
 	font-weight:bold;
 	font-size:1.2em;
+}
+a {
+	font-size:1.3em;
+	color:yellow;
 }
