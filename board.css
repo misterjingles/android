@@ -28,3 +28,7 @@ a {
 	font-size:1.3em;
 	color:yellow;
 }
+#p1,#p2 {
+	height:40px;
+	width:40px;
+}
