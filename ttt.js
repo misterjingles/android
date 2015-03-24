@@ -42,9 +42,7 @@ function changePhoto(name) {
 	imageName = name;
 	//alert('Changing Photo');
 	// Take picture using device camera and retrieve image as base64-encoded string
-	if (navigator && navigator.camera) {
-		navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
-	}
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
 }
 
 function onFail(message) {
