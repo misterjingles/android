@@ -10,12 +10,13 @@ ttt.go = function(space) {
 	
 	var img = document.getElementById(space);
 	
-	img.src = turn + ".png";
-	
-	if (turn === "x") {
-		turn = "o";
-	} else {
-		turn = "x";
+	if (img.src == "blank.png" || ttt.endsWith(img.src, "blank.png")) {
+		img.src = turn + ".png";
+		if (turn === "x") {
+			turn = "o";
+		} else {
+			turn = "x";
+		}
 	}
 }
 
@@ -25,4 +26,14 @@ ttt.reset = function() {
 		img.src = "blank.png";
 	}
 	turn = "x";
+}
+
+ttt.endsWith = function (a, b) {
+	if (a.length < b.length) {
+		return false;
+	}
+	if (a.indexOf(b) > -1) {
+		return true;
+	}
+	return false;
 }
