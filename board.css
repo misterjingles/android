@@ -18,6 +18,7 @@ div.players {
 div.board {
 	padding:25px 25px 25px 25px;
 	background-color:grey;
+	height:300px;
 }
 div.clearfix {
 	clear:both;
@@ -26,6 +27,6 @@ div h3 {
 	text-transform:uppercase;
 }
 h3::first-letter {
-	font-weight: bold;
-	font-size: 1.5em;
+	font-weight:bold;
+	font-size:1.5em;
 }
