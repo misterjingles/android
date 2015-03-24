@@ -3,30 +3,27 @@ header {
 }
 div.controls {
 	float:left;
-	height:10%;
-	margin-top:10px;
-	margin-left:25px;
+	width:100%;
 	background-color:lightblue;
 }
 div.players {
 	float:left;
-	height:10%;
-	margin-top:10px;
-	margin-left:25px;
+	width:100%;
 	background-color:lightblue;
 }
 div.board {
-	padding:25px 25px 25px 25px;
 	background-color:grey;
-	height:300px;
+}
+table.board {
+	margin-left:10px;
 }
 div.clearfix {
 	clear:both;
 }
-div h3 {
+div h4 {
 	text-transform:uppercase;
 }
-h3::first-letter {
+h4::first-letter {
 	font-weight:bold;
-	font-size:1.5em;
+	font-size:1.2em;
 }
