@@ -3,6 +3,7 @@ var destinationType;
 var imageName = "";
 
 var turn = "x";
+var moves = 0;
 
 var xTiles = [], oTiles = [];
 
@@ -28,40 +29,21 @@ function go(space) {
 		}
 	}
 	
-	if (checkForVictory(xTiles) || checkForVictory(oTiles)) {
-		if (navigator) {
-			navigator.vibrate(1000);
-		} else {
-			alert("Game Over!");
-		}
+	if (checkForVictory(xTiles)) {
+		alert("X gon' give it to ya!");
+		navigator.vibrate(1000);
+		reset();
+	} else if (checkForVictory(oTiles)) {
+		alert("O my!");
+		navigator.vibrate(1000);
+		reset();
+	} else if (moves == 8) {
+		alert("Stalemate. How boring.");
+		navigator.vibrate(1000);
+		reset();
+	} else {
+		moves++;
 	}
-}
-
-
-function changePhoto(name) {
-	imageName = name;
-	//alert('Changing Photo');
-	// Take picture using device camera and retrieve image as base64-encoded string
-	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
-}
-
-function onFail(message) {
-    alert('Failed because: ' + message);
-}
-
-function onPhotoDataSuccess(imageData) {
-	// Get image handle
-	//
-	var smallImage = document.getElementById(imageName);
-
-	// Unhide image elements
-	//
-	//smallImage.style.display = 'block';
-
-	// Show the captured photo
-	// The inline CSS rules are used to resize the image
-	//
-	smallImage.src = "data:image/jpeg;base64," + imageData;
 }
 
 function reset() {
@@ -72,6 +54,7 @@ function reset() {
 	turn = "x";
 	xTiles = [];
 	oTiles = [];
+	moves = 0;
 }
 
 function endsWith(a, b) {
@@ -114,4 +97,30 @@ function checkForVictory(array) {
 		}
 	}
 	return victory;
+}
+
+function changePhoto(name) {
+	imageName = name;
+	//alert('Changing Photo');
+	// Take picture using device camera and retrieve image as base64-encoded string
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+function onPhotoDataSuccess(imageData) {
+	// Get image handle
+	//
+	var smallImage = document.getElementById(imageName);
+
+	// Unhide image elements
+	//
+	//smallImage.style.display = 'block';
+
+	// Show the captured photo
+	// The inline CSS rules are used to resize the image
+	//
+	smallImage.src = "data:image/jpeg;base64," + imageData;
 }
